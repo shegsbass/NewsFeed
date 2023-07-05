@@ -75,6 +75,11 @@ class FeedFragment : Fragment() {
     }
 
     private fun makeAPIRequest(){
+        val progressBar = view?.findViewById<ProgressBar>(R.id.progressBar)
+        if (progressBar != null) {
+            progressBar.visibility = View.VISIBLE
+        }
+
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -91,6 +96,9 @@ class FeedFragment : Fragment() {
                 }
                 withContext(Dispatchers.Main){
                     setUpRecyclerView()
+                    if (progressBar != null) {
+                        progressBar.visibility = View.GONE
+                    }
                 }
 
             }catch (e:Exception){
