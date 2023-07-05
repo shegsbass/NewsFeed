@@ -3,12 +3,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".fragment.FeedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="261dp"
+        android:background="@color/black">
+
+        <View
+            android:id="@+id/gradientView"
+            android:layout_width="match_parent"
+            android:layout_height="261dp"/>
+
+        <TextView
+            android:id="@+id/helloText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_regular"
+            android:textFontWeight="400"
+            android:text="Hello,"
+            android:textColor="#F9F9FB"
+            android:textSize="22.15sp"
+            android:lineHeight="27.36dp"
+            android:layout_marginTop="47dp"
+            android:layout_marginLeft="27dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_regular"
+            android:textFontWeight="400"
+            android:text="Shegs"
+            android:textColor="#F9F9FB"
+            android:textSize="32sp"
+            android:lineHeight="39.53dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="134dp"
+            android:layout_marginLeft="27dp"
+            android:layout_alignParentLeft="true"/>
+
+        <View
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/circle_shape"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="71dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="359dp"
+            android:layout_height="60dp"
+            android:background="#E3E3F2"
+            app:cardCornerRadius="42dp"
+            android:layout_marginTop="158dp"
+            android:layout_centerHorizontal="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/search"
+                    android:paddingStart="18.8dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/exploreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/searchIcon"
+                    android:fontFamily="@font/inter_regular"
+                    android:textFontWeight="500"
+                    android:letterSpacing="0.27"
+                    android:text="Explore"
+                    android:textColor="#3D3D3D"
+                    android:textSize="17.81sp"
+                    android:layout_marginLeft="10.88dp"
+                    android:layout_toLeftOf="@+id/searchIcon"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bodyContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cardContainer"
+        >
+
+        <TextView
+            android:id="@+id/tv_browse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse By"
+            android:textSize="20sp"
+            android:fontFamily="@font/notosans_regular"
+            android:textFontWeight="500"
+            android:textColor="#1E1E1E"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="22dp"
+            />
+        
+        <Button
+            android:id="@+id/btn_latest"
+            android:layout_width="96dp"
+            android:layout_height="40dp"
+            android:text="Latest"
+            android:textSize="11sp"
+            android:fontFamily="@font/notosans_regular"
+            android:backgroundTint="#D9D9D9"
+            android:textFontWeight="327"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_below="@+id/tv_browse"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="13dp"/>
+
+        <Button
+            android:id="@+id/btn_older"
+            android:layout_width="96dp"
+            android:layout_height="40dp"
+            android:text="Older"
+            android:textSize="11sp"
+            android:fontFamily="@font/notosans_regular"
+            android:backgroundTint="#D9D9D9"
+            android:textFontWeight="327"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/btn_latest"
+            android:layout_marginLeft="22dp"
+            android:layout_below="@+id/tv_browse"
+            android:layout_marginTop="13dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="25dp"
+            tools:itemCount="17"
+            android:layout_below="@+id/btn_latest"
+            tools:listitem="@layout/item_layout" />
+
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
 
 </FrameLayout>
