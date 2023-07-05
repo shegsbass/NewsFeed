@@ -3,21 +3,41 @@ package com.shegs.newsfeed.fragment
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.shegs.newsfeed.APIRequest
 import com.shegs.newsfeed.R
+import com.shegs.newsfeed.adapter.RecyclerAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-
+const val BASE_URL = "https://newsapi.org/"
 class FeedFragment : Fragment() {
+
+    lateinit var countDownTimer: CountDownTimer
+
+    private var titlesList = mutableListOf<String>()
+    private var descList = mutableListOf<String>()
+    private var imagesList = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false) }
+        return inflater.inflate(R.layout.fragment_feed, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -32,5 +52,71 @@ class FeedFragment : Fragment() {
         )
 
         view.background = gradientDrawable
+
+
+        makeAPIRequest()
+
     }
+
+    private fun addToList(title: String, description: String, image: String, link: String) {
+        titlesList.add(title)
+        descList.add(description)
+        imagesList.add(image)
+    }
+
+    private fun setUpRecyclerView(){
+        val rvRecyclerView = view?.findViewById<RecyclerView>(R.id.rvRecyclerView)
+        if (rvRecyclerView != null) {
+            rvRecyclerView.layoutManager = LinearLayoutManager(activity)
+        }
+        if (rvRecyclerView != null) {
+            rvRecyclerView.adapter = RecyclerAdapter(titlesList, descList, imagesList)
+        }
+    }
+
+    private fun makeAPIRequest(){
+        val api = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(APIRequest::class.java)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                val response = api.getNews()
+
+                for (article in response.articles){
+                    Log.i("FeedFragment", "Result = $article")
+                    addToList(article.title, article.description, article.urlToImage, article.url)
+                }
+                withContext(Dispatchers.Main){
+                    setUpRecyclerView()
+                }
+
+            }catch (e:Exception){
+                Log.e("FeedFragment", e.toString())
+
+                withContext(Dispatchers.Main){
+                    attemptRequestAgain()
+                }
+            }
+        }
+    }
+
+    private fun attemptRequestAgain(){
+        countDownTimer = object: CountDownTimer(5*1000, 1000){
+            override fun onTick(millisUntilFinished: Long) {
+                Log.i("FeedFragment", "Could not retrieve data... trying again in ${millisUntilFinished/1000} seconds")
+            }
+
+            override fun onFinish() {
+                makeAPIRequest()
+                countDownTimer.cancel()
+            }
+
+        }
+        countDownTimer.start()
+    }
+
+
 }
