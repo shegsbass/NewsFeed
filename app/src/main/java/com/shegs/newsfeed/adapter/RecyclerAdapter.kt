@@ -1,5 +1,6 @@
 package com.shegs.newsfeed.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.shegs.newsfeed.R
-import com.shegs.newsfeed.fragment.UploadFragment
+import com.shegs.newsfeed.UploadActivity
 
 class RecyclerAdapter (
     private var titles: List<String>,
@@ -24,14 +25,10 @@ class RecyclerAdapter (
 
         init {
             itemView.setOnClickListener { v: View ->
-
-                val activity = v!!.context as AppCompatActivity
-                val uploadFragment = UploadFragment()
-                activity.supportFragmentManager.beginTransaction().replace(R.id.container, uploadFragment)
-                    .addToBackStack(null)
-                    .commit()
+                val context = v.context
+                val intent = Intent(context, UploadActivity::class.java)
+                context.startActivity(intent)
             }
-
         }
 
     }
