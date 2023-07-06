@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.shegs.newsfeed.APIRequest
 import com.shegs.newsfeed.R
 import com.shegs.newsfeed.adapter.RecyclerAdapter
@@ -56,9 +58,16 @@ class FeedFragment : Fragment() {
 
         makeAPIRequest()
 
+        val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.swipeRefresh)
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = true
+            makeAPIRequest()
+            swipeRefreshLayout.isRefreshing = false
+        }
+
     }
 
-    private fun addToList(title: String, description: String, image: String, link: String) {
+    private fun addToList(title: String, description: String, image: String) {
         titlesList.add(title)
         descList.add(description)
         imagesList.add(image)
@@ -72,6 +81,9 @@ class FeedFragment : Fragment() {
         if (rvRecyclerView != null) {
             rvRecyclerView.adapter = RecyclerAdapter(titlesList, descList, imagesList)
         }
+        val animation = AnimationUtils.loadAnimation(context, R.anim.fade_in_animation) // Replace 'context' with your appropriate context
+        rvRecyclerView?.startAnimation(animation)
+
     }
 
     private fun makeAPIRequest(){
@@ -92,7 +104,7 @@ class FeedFragment : Fragment() {
 
                 for (article in response.articles){
                     Log.i("FeedFragment", "Result = $article")
-                    addToList(article.title, article.description, article.urlToImage, article.url)
+                    addToList(article.title, article.description, article.urlToImage)
                 }
                 withContext(Dispatchers.Main){
                     setUpRecyclerView()

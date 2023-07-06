@@ -8,7 +8,10 @@
     android:id="@+id/feed_fragment"
     tools:context=".fragment.FeedFragment">
 
-
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -193,8 +196,10 @@
             android:textColor="@color/appColor"
             android:visibility="gone"/>
 
+
+
     </RelativeLayout>
 
     </LinearLayout>
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

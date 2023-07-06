@@ -27,7 +27,7 @@ class RecyclerAdapter (
 
                 val activity = v!!.context as AppCompatActivity
                 val uploadFragment = UploadFragment()
-                activity.supportFragmentManager.beginTransaction().replace(R.id.feed_fragment, uploadFragment)
+                activity.supportFragmentManager.beginTransaction().replace(R.id.container, uploadFragment)
                     .addToBackStack(null)
                     .commit()
             }
