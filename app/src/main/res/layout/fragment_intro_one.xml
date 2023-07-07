@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.IntroOne">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/intro_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToOutline="true"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/btn_skip"
+            android:layout_width="90dp"
+            android:layout_height="32dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="306dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/button_transparent"
+            android:fontFamily="@font/notosans_regular"
+            android:text="Skip intro"
+            android:lineSpacingExtra="0.01sp"
+            android:lineHeight="15.6dp"
+            android:textColor="#3A7EB0"
+            app:backgroundTint="@null"
+            android:textSize="8sp" />
+
+        <ImageView
+            android:id="@+id/business_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="101dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="83dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="65.1dp"
+            android:layout_above="@+id/intro_card"
+            android:layout_marginBottom="62.48dp"
+            android:src="@drawable/amico"/>
+
+        <View
+            android:id="@+id/intro_card"
+            android:layout_width="343dp"
+            android:layout_height="386dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="35.3dp"
+            android:layout_marginEnd="35.33dp"
+            android:layout_marginStart="35.33dp"
+            android:background="@drawable/intro_card" />
+
+
+        <TextView
+            android:id="@+id/headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="32sp"
+            android:lineHeight="44dp"
+            android:layout_alignTop="@+id/intro_card"
+            android:layout_marginTop="66.52dp"
+            android:layout_alignStart="@+id/intro_card"
+            android:layout_marginStart="30.67dp"
+            android:layout_alignEnd="@+id/intro_card"
+            android:layout_marginEnd="41.09dp"
+            android:layout_alignBottom="@+id/intro_card"
+            android:layout_marginBottom="244.66dp"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/splash_tv_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="14sp"
+            android:lineHeight="19.6dp"
+            android:layout_alignTop="@+id/intro_card"
+            android:layout_marginTop="127.52dp"
+            android:layout_alignStart="@+id/intro_card"
+            android:layout_marginStart="30.67dp"
+            android:layout_alignEnd="@+id/intro_card"
+            android:layout_marginEnd="39.98dp"
+            android:layout_alignBottom="@+id/intro_card"
+            android:layout_marginBottom="192.48dp"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+            android:id="@+id/full_eclipse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/intro_card"
+            android:layout_marginTop="255.52dp"
+            android:layout_alignStart="@+id/intro_card"
+            android:layout_marginStart="115.67dp"
+            android:layout_alignEnd="@+id/intro_card"
+            android:layout_marginEnd="133.67dp"
+            android:layout_alignBottom="@+id/intro_card"
+            android:layout_marginBottom="36.69dp"
+            android:src="@drawable/full_ellipse"/>
+
+        <ImageView
+            android:id="@+id/half_eclipse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/intro_card"
+            android:layout_marginTop="255.52dp"
+            android:layout_alignStart="@+id/intro_card"
+            android:layout_marginStart="162.67dp"
+            android:layout_alignEnd="@+id/intro_card"
+            android:layout_marginEnd="133.67dp"
+            android:layout_alignBottom="@+id/intro_card"
+            android:layout_marginBottom="36.69dp"
+            android:src="@drawable/half_ellipse"/>
+
+        <View
+            android:id="@+id/arrow_right_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/full_eclipse"
+            android:layout_marginTop="16dp"
+            android:layout_alignStart="@+id/full_eclipse"
+            android:layout_marginStart="16dp"
+            android:layout_alignEnd="@+id/full_eclipse"
+            android:layout_marginEnd="16dp"
+            android:layout_alignBottom="@+id/full_eclipse"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/circle_arrow_background"/>
+
+        <View
+            android:id="@+id/arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/arrow_right_bg"
+            android:layout_marginTop="19dp"
+            android:layout_alignStart="@+id/arrow_right_bg"
+            android:layout_marginStart="19dp"
+            android:layout_alignEnd="@+id/arrow_right_bg"
+            android:layout_marginEnd="19dp"
+            android:layout_alignBottom="@+id/arrow_right_bg"
+            android:layout_marginBottom="19dp"
+            android:background="@drawable/arrow_right"/>
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

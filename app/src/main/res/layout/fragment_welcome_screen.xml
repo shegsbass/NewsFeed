@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.WelcomeScreen">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/intro_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToOutline="true"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/business_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="118dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="62dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="62.11dp"
+            android:src="@drawable/img_welcome"/>
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Shegs"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="32sp"
+            android:lineHeight="44dp"
+            android:layout_below="@+id/business_avatar"
+            android:layout_marginTop="42.35dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="74dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="68dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/btn_feeds"
+            android:layout_width="342dp"
+            android:layout_height="74dp"
+            android:layout_below="@+id/tv_welcome"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="36dp"
+            android:background="@drawable/button_solid"
+            app:backgroundTint="@null"
+            android:fontFamily="@font/poppins_bold"
+            android:lineHeight="2.5dp"
+            android:text="Feeds"
+            android:clipToOutline="true"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_upload_img"
+            android:layout_width="342dp"
+            android:layout_height="74dp"
+            android:layout_below="@+id/btn_feeds"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/button_solid"
+            app:backgroundTint="@null"
+            android:fontFamily="@font/poppins_bold"
+            android:lineHeight="2.5dp"
+            android:text="Upload Image"
+            android:clipToOutline="true"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -27,15 +27,29 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/imageHolder"
+        android:layout_width="215dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="99dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:src="@drawable/image_placeholder" />
+
 
     <Button
         android:id="@+id/selectImage"
         android:layout_width="324dp"
         android:layout_height="74dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="287dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageHolder"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="33dp"
         android:layout_marginRight="33dp"
@@ -44,6 +58,7 @@
         android:lineHeight="2.5dp"
         android:text="Select image"
         android:textColor="#000000"
+        app:backgroundTint="@null"
         android:textSize="17sp" />
 
     <Button
@@ -51,13 +66,14 @@
         android:layout_width="324dp"
         android:layout_height="74dp"
         android:layout_below="@+id/selectImage"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:layout_marginLeft="33dp"
         android:layout_marginTop="17dp"
         android:layout_marginRight="33dp"
         android:background="@drawable/button_solid"
+        app:backgroundTint="@null"
         android:fontFamily="@font/poppins_bold"
         android:lineHeight="2.5dp"
         android:text="Upload image"
