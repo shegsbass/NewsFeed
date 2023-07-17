@@ -1,4 +1,4 @@
-package com.shegs.newsfeed.fragment
+package com.shegs.newsfeed.screenFragment
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable

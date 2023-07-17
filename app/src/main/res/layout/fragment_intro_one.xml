@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.IntroOne">
+    tools:context=".screenFragment.IntroOne">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -144,7 +144,7 @@
             android:background="@drawable/circle_arrow_background"/>
 
         <View
-            android:id="@+id/arrow_right"
+            android:id="@+id/arrow_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/arrow_right_bg"
@@ -154,6 +154,7 @@
             android:layout_alignEnd="@+id/arrow_right_bg"
             android:layout_marginEnd="19dp"
             android:layout_alignBottom="@+id/arrow_right_bg"
+            android:clickable="true"
             android:layout_marginBottom="19dp"
             android:background="@drawable/arrow_right"/>
 

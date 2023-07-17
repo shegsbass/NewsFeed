@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:id="@+id/feed_fragment"
-    tools:context=".fragment.FeedFragment">
+    tools:context=".screenFragment.FeedFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
