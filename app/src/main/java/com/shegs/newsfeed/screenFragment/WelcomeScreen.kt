@@ -1,5 +1,6 @@
 package com.shegs.newsfeed.screenFragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.shegs.newsfeed.R
+import com.shegs.newsfeed.UploadActivity
 
 
 class WelcomeScreen : Fragment() {
@@ -28,6 +30,11 @@ class WelcomeScreen : Fragment() {
 
         }
 
+        val uploadImageBtn = view.findViewById<Button>(R.id.btn_upload_img)
+        uploadImageBtn.setOnClickListener {
+            val intent = Intent(activity, UploadActivity::class.java)
+            startActivity(intent)
+        }
 
         return view
     }
